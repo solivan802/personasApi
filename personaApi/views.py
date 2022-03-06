@@ -42,7 +42,7 @@ class persona_view(APIView):
 
     def delete(self,request,id):
         person = list(persona.objects.filter(id=id).values())
-        if len(person > 0):
+        if len(person)>0:
             persona.objects.filter(id=id).delete()
             return Response({"mensaje" : "una persona se elimino"}, status = status.HTTP_204_NO_CONTENT)
         else:
